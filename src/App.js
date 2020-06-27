@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+ import React, { Component } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import { adminRoutes } from './routes'
+import { Frame } from './components';
+const menus = adminRoutes.filter(route => route.isNav === true);
 
-export default App;
+const mapStateProps = state => ({
+  isLogin: state.user.isLogin,
+  role: state.user.role
+})
+
+@connect(mapStateProps)
+class App extends Component {
+  render() {
+    const { isLogin, role } = this.props;
+    return (
+      isLogin
+        ?
+        <Frame menus={menus}>
+          <Switch>
+            {
+              adminRoutes.map(route => {
+                return (
+                  <Route
+                    key={route.path}
+                    exact={route.exact}
+                    render={(props) => {
+                      const hasPermission = route.roles.includes(role)
+                      return hasPermission ? <route.component {...props} /> : <Redirect to="/admin/noauth" />
+                    }}
+                  />
+                )
+              })
+            }
+            <Redirect to={adminRoutes[0].pathname} from='/admin' exact />
+            <Redirect to="/404" />
+          </Switch>
+        </Frame>
+        :
+        <Redirect to="/login" />
+    )
+  };
+};
+
+export default App
