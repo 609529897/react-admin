@@ -1,7 +1,10 @@
+import React from 'react';
+import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons';
+
 import {
   Dashboard,
   Login,
-  ArticleList,
+  List,
   Edit,
   Settings,
   NotFound,
@@ -22,18 +25,27 @@ export const adminRoutes = [
   {
     path: 'admin/dashboard',
     component: Dashboard,
-  },
-  {
-    path: 'admin/settings',
-    component: Settings,
+    title: '仪表盘',
+    isNav: true,
+    icon: <DashboardOutlined />,
   },
   {
     path: 'admin/article',
-    component: ArticleList,
+    component: List,
     exact: true,
+    title: '文章管理',
+    isNav: true,
+    icon: <UnorderedListOutlined />,
   },
   {
     path: 'admin/article/edit/:id',
     component: Edit,
+  },
+  {
+    path: 'admin/settings',
+    component: Settings,
+    title: '设置',
+    isNav: true,
+    icon: <SettingOutlined />,
   }
 ];
