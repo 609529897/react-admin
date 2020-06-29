@@ -42,7 +42,7 @@ class Frame extends Component {
                 }
               </Menu>
             </Sider>
-            <Content style={{ padding: '0 24px', minHeight: "80vh" }}>{this.props.children}</Content>
+            <Content style={{ padding: '0 24px', minHeight: "83vh" }}>{this.props.children}</Content>
           </Layout>
         </Content>
       </Layout>

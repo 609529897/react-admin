@@ -23,14 +23,14 @@ export const mainRoutes = [
 
 export const adminRoutes = [
   {
-    path: 'admin/dashboard',
+    path: '/admin/dashboard',
     component: Dashboard,
     title: '仪表盘',
     isNav: true,
     icon: <DashboardOutlined />,
   },
   {
-    path: 'admin/article',
+    path: '/admin/article',
     component: List,
     exact: true,
     title: '文章管理',
@@ -38,11 +38,11 @@ export const adminRoutes = [
     icon: <UnorderedListOutlined />,
   },
   {
-    path: 'admin/article/edit/:id',
+    path: '/admin/article/edit/:id',
     component: Edit,
   },
   {
-    path: 'admin/settings',
+    path: '/admin/settings',
     component: Settings,
     title: '设置',
     isNav: true,
