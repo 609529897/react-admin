@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Layout, Menu, Badge, Dropdown, Avatar } from 'antd';
-import { CaretDownOutlined } from '@ant-design/icons';
-import { withRouter } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Layout, Menu, Badge, Dropdown, Avatar } from 'antd'
+import { CaretDownOutlined } from '@ant-design/icons'
+import { withRouter } from 'react-router-dom'
 
-import Logo from './logo.png';
-import './frame.less';
+import Logo from './logo.png'
+import './frame.less'
 
-const { Header, Content, Sider } = Layout;
+const { Header, Content, Sider } = Layout
 
 @withRouter
 class Frame extends Component {
@@ -47,7 +47,7 @@ class Frame extends Component {
         </Content>
       </Layout>
     )
-  };
-};
+  }
+}
 
-export default Frame;
+export default Frame

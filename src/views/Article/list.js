@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 // tools
-import moment from 'moment';
-import XLSX from 'xlsx';
+import moment from 'moment'
+import XLSX from 'xlsx'
 
 import {
   Card,
@@ -13,7 +13,7 @@ import {
   Typography,
   message,
   Tooltip
-} from 'antd';
+} from 'antd'
 
 const titleDisplayMap = {
   id: 'id',
@@ -93,8 +93,8 @@ class ArticleList extends Component {
             // pageSizeOptions: ['10', '15', '20', '30']
           }}></Table>
       </Card>
-    );
+    )
   }
-};
+}
 
-export default ArticleList;
+export default ArticleList

@@ -1,15 +1,15 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from 'react'
+import { render } from 'react-dom'
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { Provider } from 'react-redux'
 
-import zhCN from 'antd/lib/locale-provider/zh_CN';
-import { ConfigProvider } from 'antd';
+import zhCN from 'antd/lib/locale-provider/zh_CN'
+import { ConfigProvider } from 'antd'
 
-import store from './store';
-import { mainRoutes } from './routes';
-import App from './App';
-import './index.less';
+import store from './store'
+import { mainRoutes } from './routes'
+import App from './App'
+import './index.less'
 
 render(
   // <Provider store={store}>
@@ -31,4 +31,4 @@ render(
     </Router>
   </ConfigProvider>
   // </Provider>
-  , document.querySelector('#root'));
+  , document.querySelector('#root'))

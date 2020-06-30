@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React, { Component } from 'react'
+import { Route, Switch, Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
 
-import { adminRoutes } from './routes';
-import { Frame } from './components';
-const menus = adminRoutes.filter(route => route.isNav === true);
+import { adminRoutes } from './routes'
+import { Frame } from './components'
+const menus = adminRoutes.filter(route => route.isNav === true)
 
 const mapStateProps = state => ({
   isLogin: state.user.isLogin,
   role: state.user.role,
-});
+})
 
 // @connect(mapStateProps)
 class App extends Component {
   render() {
-    const { isLogin, role } = this.props;
+    const { isLogin, role } = this.props
     return (
       true
         ?
@@ -43,7 +43,7 @@ class App extends Component {
         :
         <Redirect to="/login" />
     )
-  };
-};
+  }
+}
 
-export default App;
+export default App

@@ -1,5 +1,5 @@
-import React from 'react';
-import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons';
+import React from 'react'
+import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons'
 
 import {
   Dashboard,
@@ -19,7 +19,7 @@ export const mainRoutes = [
     path: '/404',
     component: NotFound,
   },
-];
+]
 
 export const adminRoutes = [
   {
@@ -48,4 +48,4 @@ export const adminRoutes = [
     isNav: true,
     icon: <SettingOutlined />,
   }
-];
+]
