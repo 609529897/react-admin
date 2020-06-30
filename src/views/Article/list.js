@@ -104,8 +104,8 @@ class ArticleList extends Component {
             // }
             // return <Tag color={titleMap[titleKey]}>{record.title}</Tag>
             return (
-              <Tooltip title={amount > 230 ? '超过230' : '没超过230'}>
-                <Tag color={amount > 230 ? 'red' : 'green'}>{record.amount}</Tag>
+              <Tooltip title={amount > 8000 ? '超过8000' : '没超过8000'}>
+                <Tag color={amount > 8000 ? 'red' : 'green'}>{record.amount}</Tag>
               </Tooltip>
             )
           }
