@@ -72,7 +72,7 @@ class Edit extends Component {
     this.editor.create()
   }
   componentDidMount() {
-    this.initEditor()
+    // this.initEditor()
     this.setState({
       isLoading: true
     })
