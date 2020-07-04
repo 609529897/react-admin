@@ -69,7 +69,6 @@ class ArticleList extends Component {
     // 组合数据
     const data = [Object.keys(state.dataSource[0])] // [['id', 'title', 'author', 'amount', 'createAt']]
     for (let i = 0; i < state.dataSource.length; i++) {
-      // data.push(Object.values(this.state.dataSource[i]))
       data.push([
         state.dataSource[i].id,
         state.dataSource[i].title,
@@ -94,15 +93,6 @@ class ArticleList extends Component {
           key: item,
           render: (text, record) => {
             const { amount } = record
-            // 这里是根据一个数字的大小做一个条件渲染
-            // 同理，可以做职位级别不同的颜色
-            // 总经理：'001'，经理：'002'，主管: '003' 
-            // const titleMap = {
-            //   '001': 'red',
-            //   '002': '#09f',
-            //   '003': 'green'
-            // }
-            // return <Tag color={titleMap[titleKey]}>{record.title}</Tag>
             return (
               <Tooltip title={amount > 8000 ? '超过8000' : '没超过8000'}>
                 <Tag color={amount > 8000 ? 'red' : 'green'}>{record.amount}</Tag>
@@ -148,23 +138,18 @@ class ArticleList extends Component {
   }
 
   showDeleteArticleModal = (record) => {
-    // 使用函数的方式调用，定制化没那么强
-    // Modal.confirm({
-    //   title: '此操作不可逆，请谨慎！！！',
-    //   content: <Typography>确定要删除<span style={{color: '#f00'}}>{record.title}</span>吗？</Typography>,
-    //   okText: '别磨叽！赶紧删除！',
-    //   cancelText: '我点错了！',
-    //   onOk() {
-    //     deleteArticle(record.id)
-    //       .then(resp => {
-    //         console.log(resp)
-    //       })
-    //   }
-    // })
     this.setState({
       isShowArticleModal: true,
       deleteArticleTitle: record.title,
       deleteArticleID: record.id
+    })
+  }
+
+  hideDeleteModal = () => {
+    this.setState({
+      isShowArticleModal: false,
+      deleteArticleTitle: '',
+      deleteArticleConfirmLoading: false
     })
   }
 
@@ -192,14 +177,6 @@ class ArticleList extends Component {
       })
   }
 
-  hideDeleteModal = () => {
-    this.setState({
-      isShowArticleModal: false,
-      deleteArticleTitle: '',
-      deleteArticleConfirmLoading: false
-    })
-  }
-
   getData = () => {
     const state = this.state
     this.setState({ isLoading: true })
@@ -210,6 +187,7 @@ class ArticleList extends Component {
         // 如果请求完成之后组件已经销毁，就不需要再setState
         // this.updater.isMounted(this) 返回 fasle 表示组件已经被销毁
         if (!this.updater.isMounted(this)) return
+        console.log(columns)
         this.setState({
           total: resp.total,
           dataSource: resp.list,
@@ -225,13 +203,18 @@ class ArticleList extends Component {
         })
       })
   }
+
   componentDidMount() {
     this.getData()
   }
   render() {
-    const state = this.state;
+    const state = this.state
     return (
-      <Card title="文章列表" bordered={false} extra={<Button onClick={this.toExcel}>导出 excel</Button>}>
+      <Card title="文章列表"
+        bordered={false}
+        extra={<Button
+          onClick={this.toExcel}>
+          导出 excel</Button>}>
         <Table
           rowKey={record => record.id}
           dataSource={state.dataSource}
@@ -247,14 +230,13 @@ class ArticleList extends Component {
             pageSizeOptions: ['10', '15', '20', '30']
           }} />
         <Modal
-          title='此操作不可逆，请谨慎！！！'
+          title='此操作不可逆，请谨慎操作！！！'
           visible={state.isShowArticleModal}
           onCancel={this.hideDeleteModal}
           confirmLoading={state.deleteArticleConfirmLoading}
           onOk={this.deleteArticle}
         >
-          <Typography>
-            确定要删除<span style={{ color: '#f00' }}>{state.deleteArticleTitle}</span>吗？</Typography>
+          <Typography>确定要删除<span style={{ color: '#f00' }}>{state.deleteArticleTitle}</span>吗？</Typography>
         </Modal>
       </Card>
     )
