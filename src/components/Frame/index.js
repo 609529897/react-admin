@@ -14,6 +14,8 @@ class Frame extends Component {
     this.props.history.push(key)
   }
   render() {
+    const selectedKeyArr = this.props.location.pathname.split('/')
+    selectedKeyArr.length = 3
     return (
       <Layout>
         <Header className="qua-header">
@@ -26,7 +28,7 @@ class Frame extends Component {
             <Sider className="site-layout-background" width={200}>
               <Menu
                 mode="inline"
-                selectedKeys={[this.props.location.pathname]}
+                selectedKeys={[selectedKeyArr.join('/')]}
                 style={{ height: '100%', borderRight: 0 }}
                 onClick={this.handleMenuClick}
               >

@@ -21,12 +21,12 @@ const Login = Loadable({
 })
 
 const List = Loadable({
-  loader: () => import('./Article/list'),
+  loader: () => import('./Article/List'),
   loading: Loading
 })
 
 const Edit = Loadable({
-  loader: () => import('./Article/edit'),
+  loader: () => import('./Article/Edit'),
   loading: Loading
 })
 
