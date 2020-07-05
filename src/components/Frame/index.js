@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Layout, Menu, Badge, Dropdown, Avatar } from 'antd'
 import { CaretDownOutlined } from '@ant-design/icons'
 import { withRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Logo from './logo.png'
 import './frame.less'
@@ -20,7 +21,7 @@ class Frame extends Component {
       <Layout>
         <Header className="qua-header">
           <div className="qua-logo">
-            <img src={Logo} alt="logo" />
+            <Link to="/" ><img src={Logo} alt="logo" /></Link>
           </div>
         </Header>
         <Content style={{ padding: '25px 25px' }}>
