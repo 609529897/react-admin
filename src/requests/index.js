@@ -43,7 +43,6 @@ export const deleteArticleById = (id) => {
 
 // 通过id获取文章
 export const getArticleById = (id) => {
-  console.log(id)
   return service.post(`/api/v1/article/${id}`)
 }
 

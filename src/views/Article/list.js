@@ -187,7 +187,6 @@ class ArticleList extends Component {
         // 如果请求完成之后组件已经销毁，就不需要再setState
         // this.updater.isMounted(this) 返回 fasle 表示组件已经被销毁
         if (!this.updater.isMounted(this)) return
-        console.log(columns)
         this.setState({
           total: resp.total,
           dataSource: resp.list,

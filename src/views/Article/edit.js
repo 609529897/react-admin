@@ -39,18 +39,18 @@ class Edit extends Component {
   }
   onFinish = (values) => {
     const data = Object.assign({}, values, {
-      createAt: values.createAt._d
+      createAt: values.createAt.valueOf()
     })
+
     this.setState({ isLoading: true })
     saveArticle(this.props.match.params.id, data)
       .then(resp => {
         message.success(resp.msg)
+        this.setState({ isLoading: false })
         this.props.history.push('/admin/article')
       })
-      .finally(() => {
-        this.setState({ isLoading: false })
-      })
   }
+
   initEditor = () => {
     this.editor = new E(this.editorRef.current)
     this.editor.customConfig.onchange = (html) => {
@@ -130,9 +130,6 @@ class Edit extends Component {
                 }, {
                   pattern: /[0-9]$/,
                   message: '阅读量必须是数值!',
-                }, {
-                  min: 0,
-                  message: '阅读量不可以低于0!',
                 },
               ]}
             >
@@ -167,7 +164,7 @@ class Edit extends Component {
                 },
               ]}
             >
-            <div className="qua-editor" ref={this.editorRef}></div>
+              <div className="qua-editor" ref={this.editorRef}></div>
             </Form.Item>
             <br />
             <Form.Item wrapperCol={{ offset: 4 }}>
