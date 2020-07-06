@@ -3,6 +3,7 @@ import { Layout, Menu, Badge, Dropdown, Avatar } from 'antd'
 import { DownOutlined } from '@ant-design/icons'
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { getNotificationList } from '../../actions/notifications'
 
 import Logo from './logo.png'
 import './frame.less'
@@ -15,10 +16,12 @@ const mapState = state => {
   }
 }
 
-@connect(mapState)
+@connect(mapState, { getNotificationList })
 @withRouter
 class Frame extends Component {
-  
+  componentDidMount() {
+    this.props.getNotificationList()
+  }
   handleMenuClick = ({ key }) => {
     this.props.history.push(key)
   }
