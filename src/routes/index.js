@@ -8,7 +8,9 @@ import {
   Edit,
   Settings,
   NotFound,
-  Notifications
+  Notifications,
+  NoAuth,
+  Profile
 } from '../views';
 
 export const mainRoutes = [
@@ -29,6 +31,7 @@ export const adminRoutes = [
     title: '仪表盘',
     isNav: true,
     icon: <DashboardOutlined />,
+    roles: ['001', '002', '003']
   },
   {
     path: '/admin/article',
@@ -37,19 +40,29 @@ export const adminRoutes = [
     title: '文章管理',
     isNav: true,
     icon: <UnorderedListOutlined />,
+    roles: ['001', '002']
   },
   {
     path: '/admin/article/edit/:id',
     component: Edit,
-  },{
+  }, {
     path: '/admin/notifications',
     component: Notifications,
-  },
-  {
+    roles: ['001', '002', '003']
+  }, {
+    pathname: '/admin/noauth',
+    component: NoAuth,
+    roles: ['001', '002', '003']
+  }, {
+    pathname: '/admin/profile',
+    component: Profile,
+    roles: ['001', '002', '003']
+  }, {
     path: '/admin/settings',
     component: Settings,
     title: '设置',
     isNav: true,
     icon: <SettingOutlined />,
+    roles: ['001']
   }
 ]

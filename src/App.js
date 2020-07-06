@@ -6,17 +6,17 @@ import { adminRoutes } from './routes'
 import { Frame } from './components'
 const menus = adminRoutes.filter(route => route.isNav === true)
 
-const mapStateProps = state => ({
+const mapState = state => ({
   isLogin: state.user.isLogin,
   role: state.user.role,
 })
 
-// @connect(mapStateProps)
+@connect(mapState)
 class App extends Component {
   render() {
     const { isLogin, role } = this.props
     return (
-      true
+      isLogin
         ?
         <Frame menus={menus}>
           <Switch>
@@ -28,9 +28,8 @@ class App extends Component {
                     exact={route.exact}
                     path={route.path}
                     render={(props) => {
-                      // const hasPermission = route.roles.includes(role)
-                      // return hasPermission ? <route.component {...props} /> : <Redirect to="/admin/noauth" />
-                      return <route.component {...props} /> 
+                      const hasPermission = route.roles.includes(role)
+                      return hasPermission ? <route.component {...props} /> : <Redirect to="/admin/noauth" />
                     }}
                   />
                 )
