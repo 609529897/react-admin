@@ -5,6 +5,7 @@ import {
   Col,
   Spin
 } from 'antd'
+import { ReadOutlined, SmileOutlined, CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons'
 
 import echarts from 'echarts'
 
@@ -67,16 +68,18 @@ class Dashboard extends Component {
         >
           <Row gutter={16}>
             <Col className="gutter-row" span={6}>
-              <div className="qua-gutter-box" style={{ backgroundColor: '#29B6F6' }}>col-6</div>
+              <div className="qua-gutter-box" style={{ backgroundColor: '#29B6F6' }}>
+              <ReadOutlined className='icon'/>
+              总预览 300k</div>
             </Col>
             <Col className="gutter-row" span={6}>
-              <div className="qua-gutter-box" style={{ backgroundColor: '#AB47BC' }}>col-6</div>
+              <div className="qua-gutter-box" style={{ backgroundColor: '#AB47BC' }}><SmileOutlined className='icon'/>总客户 8k+</div>
             </Col>
             <Col className="gutter-row" span={6}>
-              <div className="qua-gutter-box" style={{ backgroundColor: '#FF7043' }}>col-6</div>
+              <div className="qua-gutter-box" style={{ backgroundColor: '#FF7043' }}><CaretUpOutlined className='icon'/>阅读 8000+ 的文章 0.8k</div>
             </Col>
             <Col className="gutter-row" span={6}>
-              <div className="qua-gutter-box" style={{ backgroundColor: '#43A047' }}>col-6</div>
+              <div className="qua-gutter-box" style={{ backgroundColor: '#43A047' }}><CaretDownOutlined className='icon'/>阅读 8000- 的文章 2.2k</div>
             </Col>
           </Row>
         </Card>

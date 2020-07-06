@@ -12,23 +12,23 @@ import App from './App'
 import './index.less'
 
 render(
-  // <Provider store={store}>
-  <ConfigProvider locale={zhCN}>
-    <Router>
-      <Switch>
-        <Route path="/admin" render={(props) => {
-          // TODO: 权限，需要登录才能访问 admin
-          return <App {...props} />
-        }} />
-        {
-          mainRoutes.map(route => {
-            return <Route key={route.path} path={route.path} component={route.component} />
-          })
-        }
-        <Redirect to="/admin" from="/" exact/>
-        <Redirect to="/404" />
-      </Switch>
-    </Router>
-  </ConfigProvider>
-  // </Provider>
+  <Provider store={store}>
+    <ConfigProvider locale={zhCN}>
+      <Router>
+        <Switch>
+          <Route path="/admin" render={(props) => {
+            // TODO: 权限，需要登录才能访问 admin
+            return <App {...props} />
+          }} />
+          {
+            mainRoutes.map(route => {
+              return <Route key={route.path} path={route.path} component={route.component} />
+            })
+          }
+          <Redirect to="/admin" from="/" exact />
+          <Redirect to="/404" />
+        </Switch>
+      </Router>
+    </ConfigProvider>
+  </Provider>
   , document.querySelector('#root'))

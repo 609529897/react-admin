@@ -30,10 +30,10 @@ const Edit = Loadable({
   loading: Loading
 })
 
-// const Notifications = Loadable({
-//   loader: () => import('./Notifications'),
-//   loading: Loading
-// })
+const Notifications = Loadable({
+  loader: () => import('./Notifications'),
+  loading: Loading
+})
 
 // const NoAuth = Loadable({
 //   loader: () => import('./NoAuth'),
@@ -52,7 +52,7 @@ export {
   Settings,
   List,
   Edit,
-  // Notifications,
+  Notifications,
   // NoAuth,
   // Profile
 }

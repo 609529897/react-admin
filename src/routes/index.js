@@ -8,6 +8,7 @@ import {
   Edit,
   Settings,
   NotFound,
+  Notifications
 } from '../views';
 
 export const mainRoutes = [
@@ -40,6 +41,9 @@ export const adminRoutes = [
   {
     path: '/admin/article/edit/:id',
     component: Edit,
+  },{
+    path: '/admin/notifications',
+    component: Notifications,
   },
   {
     path: '/admin/settings',
