@@ -47,18 +47,16 @@ export const login = (userInfo) => {
     dispatch(startLogin())
     loginRequest(userInfo)
       .then(resp => {
-        console.log(resp)
         if (resp.data.code === 200) {
           const {
             authToken,
-            ...userInfo
           } = resp.data.data
           if (userInfo.remember === true) {
             window.localStorage.setItem('authToken', authToken)
-            window.localStorage.setItem('userInfo', JSON.stringify(userInfo))
+            window.localStorage.setItem('userInfo', JSON.stringify(resp.data.data))
           } else {
             window.sessionStorage.setItem('authToken', authToken)
-            window.sessionStorage.setItem('userInfo', JSON.stringify(userInfo))
+            window.sessionStorage.setItem('userInfo', JSON.stringify(resp.data.data))
           }
           dispatch(loginSuccess(resp.data.data))
         } else {

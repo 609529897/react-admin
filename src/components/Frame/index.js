@@ -4,6 +4,7 @@ import { DownOutlined } from '@ant-design/icons'
 import { withRouter, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getNotificationList } from '../../actions/notifications'
+import { logout } from '../../actions/user'
 
 import Logo from './logo.png'
 import './frame.less'
@@ -12,11 +13,13 @@ const { Header, Content, Sider } = Layout
 
 const mapState = state => {
   return {
-    notificationsCount: state.notifications.list.filter(item => item.hasRead === false).length
+    notificationsCount: state.notifications.list.filter(item => item.hasRead === false).length,
+    avatar: state.user.avatar,
+    displayName: state.user.displayName,
   }
 }
 
-@connect(mapState, { getNotificationList })
+@connect(mapState, { getNotificationList, logout })
 @withRouter
 class Frame extends Component {
   componentDidMount() {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons'
+import { DashboardOutlined, UnorderedListOutlined, SettingOutlined, RobotOutlined } from '@ant-design/icons'
 
 import {
   Dashboard,
@@ -50,11 +50,11 @@ export const adminRoutes = [
     component: Notifications,
     roles: ['001', '002', '003']
   }, {
-    pathname: '/admin/noauth',
+    path: '/admin/noauth',
     component: NoAuth,
     roles: ['001', '002', '003']
   }, {
-    pathname: '/admin/profile',
+    path: '/admin/profile',
     component: Profile,
     roles: ['001', '002', '003']
   }, {
@@ -64,5 +64,12 @@ export const adminRoutes = [
     isNav: true,
     icon: <SettingOutlined />,
     roles: ['001', '002', '003']
+  },{
+    path: '/admin/dev',
+    component: "",
+    title: '开发中...',
+    isNav: true,
+    icon: <RobotOutlined />,
+    roles: ['000']
   },
 ]

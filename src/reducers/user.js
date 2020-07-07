@@ -8,7 +8,8 @@ const userInfo = JSON.parse(window.localStorage.getItem('userInfo')) || JSON.par
 const initState = {
   ...userInfo,
   isLogin,
-  isLoading: false
+  isLoading: false,
+  role: '001',
 }
 
 export default (state = initState, action) => {
