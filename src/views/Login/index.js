@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { Form, Input, Button, Checkbox, Card } from 'antd'
+import { Form, Input, Button, Checkbox, Card, Layout } from 'antd'
 import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { login } from '../../actions/user'
 
 import './login.less'
+import Logo from './logo.png'
+
+const { Header } = Layout
 
 const mapState = state => ({
   isLogin: state.user.isLogin,
@@ -21,9 +24,15 @@ class Login extends Component {
     return (
       this.props.isLogin
         ?
-        <Redirect to='/admin/dashboard' />
+        <Redirect to='/admin' />
         :
-        <Card title="QUA Admin" className="qua-login-wrapper">
+        <div>
+          <Header className="qua-header">
+          <div className="qua-logo">
+            <img src={Logo} alt="logo" />
+          </div>
+          </Header>
+          <Card title="QUA Admin" className="qua-login-wrapper">
           <Form
             name="normal_login"
             className="login-form"
@@ -72,6 +81,7 @@ class Login extends Component {
             </Form.Item>
           </Form>
         </Card>
+        </div>
     )
   }
 }
