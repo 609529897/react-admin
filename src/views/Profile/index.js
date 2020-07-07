@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Card, Upload, Spin, Form,Input } from 'antd'
-import { UserOutlined } from '@ant-design/icons'
+import { Card, Upload, Spin } from 'antd'
 import axios from 'axios'
 import { changeAvatar } from '../../actions/user'
 
