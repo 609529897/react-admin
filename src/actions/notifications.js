@@ -18,7 +18,7 @@ export const markAllNotificationsAsRead = () => {
     dispatch(startPost())
     setTimeout(() => {
       dispatch({
-        type: actionTypes.MARK_NOTIFICATIONS_AS_READ,
+        type: actionTypes.MARK_ALL_NOTIFICATIONS_AS_READ,
       })
       dispatch(finishPost())
     }, 1000)

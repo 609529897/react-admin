@@ -40,7 +40,7 @@ export const adminRoutes = [
     title: '文章管理',
     isNav: true,
     icon: <UnorderedListOutlined />,
-    roles: ['001', '002']
+    roles: ['001', '002', '003']
   },
   {
     path: '/admin/article/edit/:id',
@@ -63,6 +63,6 @@ export const adminRoutes = [
     title: '设置',
     isNav: true,
     icon: <SettingOutlined />,
-    roles: ['001']
-  }
+    roles: ['001', '002', '003']
+  },
 ]

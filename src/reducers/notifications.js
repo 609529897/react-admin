@@ -38,7 +38,7 @@ export default (state = initStateb, action) => {
         ...state,
         list: newList
       }
-    case actionTypes.MARK_NOTIFICATIONS_AS_READ:
+    case actionTypes.MARK_ALL_NOTIFICATIONS_AS_READ:
       const allHasReadTrueNewList = state.list.map(item => {
         if (item.hasRead === false) {
           item.hasRead = true

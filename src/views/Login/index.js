@@ -7,7 +7,6 @@ import { login } from '../../actions/user'
 
 import './login.less'
 
-
 const mapState = state => ({
   isLogin: state.user.isLogin,
   isLoading: state.user.isLoading
@@ -22,7 +21,7 @@ class Login extends Component {
     return (
       this.props.isLogin
         ?
-        <Redirect to='/admin' />
+        <Redirect to='/admin/dashboard' />
         :
         <Card title="QUA Admin" className="qua-login-wrapper">
           <Form

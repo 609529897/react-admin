@@ -47,6 +47,7 @@ export const login = (userInfo) => {
     dispatch(startLogin())
     loginRequest(userInfo)
       .then(resp => {
+        console.log(resp)
         if (resp.data.code === 200) {
           const {
             authToken,
