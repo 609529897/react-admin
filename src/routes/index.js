@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardOutlined, UnorderedListOutlined, SettingOutlined, RobotOutlined } from '@ant-design/icons'
+import { DashboardOutlined, UnorderedListOutlined, SettingOutlined } from '@ant-design/icons'
 
 import {
   Dashboard,
