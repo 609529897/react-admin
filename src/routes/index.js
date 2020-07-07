@@ -63,13 +63,6 @@ export const adminRoutes = [
     title: '设置',
     isNav: true,
     icon: <SettingOutlined />,
-    roles: ['001', '002', '003']
-  },{
-    path: '/admin/dev',
-    component: "",
-    title: '开发中...',
-    isNav: true,
-    icon: <RobotOutlined />,
     roles: ['000']
   },
 ]

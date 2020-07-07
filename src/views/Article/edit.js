@@ -9,7 +9,6 @@ import {
   Input,
   Spin,
 } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
 
 // tools
 import moment from 'moment'

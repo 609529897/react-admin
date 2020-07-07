@@ -91,7 +91,7 @@ class Frame extends Component {
                 {
                   this.props.menus.map(item => {
                     return (
-                      <Menu.Item key={item.path}>
+                      <Menu.Item className="navItem" key={item.path}>
                         {item.icon}
                         {item.title}
                       </Menu.Item>

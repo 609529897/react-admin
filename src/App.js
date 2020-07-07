@@ -14,9 +14,9 @@ const mapState = state => ({
 @connect(mapState)
 class App extends Component {
   render() {
-    const { isLogin, role } = this.props
+    const prosp = this.props
     return (
-      isLogin
+      prosp.isLogin
         ?
         <Frame menus={menus}>
           <Switch>
@@ -28,7 +28,7 @@ class App extends Component {
                     exact={route.exact}
                     path={route.path}
                     render={(routerProps) => {
-                      const hasPermission = route.roles.includes(role)
+                      const hasPermission = route.roles.includes(prosp.role)
                       return hasPermission ? <route.component {...routerProps} /> : <Redirect to="/admin/noauth" />
                     }}
                   />

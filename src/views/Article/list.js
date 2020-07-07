@@ -211,9 +211,7 @@ class ArticleList extends Component {
     return (
       <Card title="文章列表"
         bordered={false}
-        extra={<Button
-          onClick={this.toExcel}>
-          导出 excel</Button>}>
+        extra={<Button onClick={this.toExcel}> 导出 excel</Button>}>
         <Table
           rowKey={record => record.id}
           dataSource={state.dataSource}

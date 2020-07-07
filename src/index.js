@@ -16,9 +16,9 @@ render(
     <ConfigProvider locale={zhCN}>
       <Router>
         <Switch>
-          <Route path="/admin" render={(props) => {
+          <Route path="/admin" render={(routerProps) => {
             // TODO: 权限，需要登录才能访问 admin
-            return <App {...props} />
+            return <App {...routerProps} />
           }} />
           {
             mainRoutes.map(route => {

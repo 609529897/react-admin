@@ -9,7 +9,6 @@ const initState = {
   ...userInfo,
   isLogin,
   isLoading: false,
-  role: '001',
 }
 
 export default (state = initState, action) => {

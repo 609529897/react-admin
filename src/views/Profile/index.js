@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
-
 import { connect } from 'react-redux'
-
-import { Card, Upload, Spin } from 'antd'
-
+import { Card, Upload, Spin, Form,Input } from 'antd'
+import { UserOutlined } from '@ant-design/icons'
 import axios from 'axios'
-
 import { changeAvatar } from '../../actions/user'
+
+import './profile.less'
 
 const mapState = state => ({
   avatarUrl: state.user.avatar
@@ -59,6 +58,7 @@ class Profile extends Component {
           <Spin
             spinning={this.state.isUploading}
           >
+            头像：
             {
               this.props.avatarUrl ? <img style={{width: 78, height: 78}} src={this.props.avatarUrl} alt="头像" /> : <span>点击上传</span>
             }
