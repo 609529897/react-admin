@@ -32,7 +32,7 @@ class Login extends Component {
             <img src={Logo} alt="logo" />
           </div>
           </Header>
-          <Card title="QUA Admin" className="qua-login-wrapper">
+          <Card title="登录" className="qua-login-wrapper">
           <Form
             name="normal_login"
             className="login-form"
