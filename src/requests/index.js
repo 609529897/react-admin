@@ -3,11 +3,11 @@ import { message } from 'antd'
 const isDev = process.env.NODE_ENV === 'development'
 
 const service = axios.create({
-  baseURL: isDev ? 'http://rap2.taobao.org:38080/app/mock/259350' : ''
+  baseURL: isDev ? 'use/' : ''
 })
 
 const service1 = axios.create({
-  baseURL: isDev ? 'http://rap2.taobao.org:38080/app/mock/259350' : ''
+  baseURL: isDev ? 'use/' : ''
 })
 
 service.interceptors.request.use((config) => {

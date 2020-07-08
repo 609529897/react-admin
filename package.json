@@ -2,6 +2,7 @@
   "name": "react-admin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "./",
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
     "@babel/plugin-proposal-decorators": "^7.10.3",
